@@ -1,41 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Animations with LocalStorage</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Party Planner</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="myButton">Click me to toggle animation</button>
+    <div class="container">
+        <header>
+            <h1 id="logo">🎉 Party Planner Pro</h1>
+        </header>
 
-  <script>
-    // Check if the user prefers the animation to be enabled or disabled
-window.onload = () => {
-    // Retrieve the stored preference from localStorage (default to 'true' if not set)
-    let isAnimationEnabled = localStorage.getItem('animationEnabled') === 'true';
-  
-    // Get the button element
-    const button = document.getElementById('myButton');
-  
-    // Apply animation if enabled
-    if (isAnimationEnabled) {
-      button.classList.add('animate');
-    }
-  
-    // Event listener for the button click to toggle the animation
-    button.addEventListener('click', () => {
-      // Toggle the animation on or off
-      if (button.classList.contains('animate')) {
-        button.classList.remove('animate');
-        localStorage.setItem('animationEnabled', 'false'); // Save the preference
-      } else {
-        button.classList.add('animate');
-        localStorage.setItem('animationEnabled', 'true'); // Save the preference
-      }
-    });
-  };
-  
-  </script>
+        <main>
+            <section class="theme-selector">
+                <h2>Choose Your Party Theme</h2>
+                <div class="theme-options">
+                    <div class="theme-card" data-theme="birthday">
+                        <img src="https://via.placeholder.com/150?text=Birthday" alt="Birthday">
+                        <p>Birthday Bash</p>
+                    </div>
+                    <div class="theme-card" data-theme="disco">
+                        <img src="https://via.placeholder.com/150?text=Disco" alt="Disco">
+                        <p>Disco Fever</p>
+                    </div>
+                    <div class="theme-card" data-theme="tropical">
+                        <img src="https://via.placeholder.com/150?text=Tropical" alt="Tropical">
+                        <p>Tropical Getaway</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="party-form">
+                <h2>Your Party Details</h2>
+                <form id="partyForm">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Party Date:</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Plan My Party!</button>
+                </form>
+            </section>
+
+            <div id="confetti-container"></div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

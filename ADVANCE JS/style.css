@@ -1,25 +1,101 @@
-/* Define the keyframes for the animation */
-@keyframes changeColor {
+/* Base Styles */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f9f3ff;
+    margin: 0;
+    padding: 20px;
+    transition: background-color 0.5s ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Theme Cards with Hover Animations */
+.theme-card {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.theme-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.theme-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.theme-card:hover img {
+    transform: rotate(5deg);
+}
+
+/* Submit Button Animation */
+.submit-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.submit-btn:hover {
+    background: linear-gradient(45deg, #ff8e8e, #ff6b6b);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+}
+
+/* Confetti Animation */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    opacity: 0;
+    animation: confetti-fall 3s ease-in-out forwards;
+}
+
+@keyframes confetti-fall {
     0% {
-      background-color: #ff6347; /* Initial color */
-    }
-    50% {
-      background-color: #4caf50; /* Midway color */
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
     }
     100% {
-      background-color: #ff6347; /* Final color */
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
     }
-  }
-  
-  /* Apply the animation to the button */
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button.animate {
-    animation: changeColor 2s infinite; /* Trigger the animation */
-  }
-  
+}
+
+/* Theme-based Background Changes */
+body.birthday-theme {
+    background-color: #fff0f5;
+}
+
+body.disco-theme {
+    background-color: #000;
+    color: #fff;
+}
+
+body.tropical-theme {
+    background-color: #e0f7fa;
+}
