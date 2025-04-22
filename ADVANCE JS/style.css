@@ -1,0 +1,25 @@
+/* Define the keyframes for the animation */
+@keyframes changeColor {
+    0% {
+      background-color: #ff6347; /* Initial color */
+    }
+    50% {
+      background-color: #4caf50; /* Midway color */
+    }
+    100% {
+      background-color: #ff6347; /* Final color */
+    }
+  }
+  
+  /* Apply the animation to the button */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.animate {
+    animation: changeColor 2s infinite; /* Trigger the animation */
+  }
+  
